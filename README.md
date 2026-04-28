@@ -17,9 +17,9 @@ Proste i wydajne REST API do śledzenia progresji na siłowni i zarządzania obj
 * **Obsługa błędów:** Walidacja wejścia (JSON) oraz obsługa wyjątków bazy danych (Status 400, 404, 500).
 * **Swagger UI:** Interaktywna dokumentacja API do testowania endpointów bezpośrednio z przeglądarki.
 * **Czysta architektura:** Wyraźny podział na warstwy (Controllers, Services, Repositories) dla lepszej organizacji kodu i łatwiejszej konserwacji.
+* **Dashboard statystyk:** Moduł wyliczający całkowitą objętość treningową oraz historię aktywności.
 
 ## ⚙️ Jak uruchomić projekt lokalnie?
-
 1. Sklonuj repozytorium na swój komputer.
 2. Otwórz terminal w głównym folderze projektu.
 3. Projekt korzysta z bazy SQLite (plik generuje się lokalnie), więc nie wymaga zewnętrznego serwera SQL. 

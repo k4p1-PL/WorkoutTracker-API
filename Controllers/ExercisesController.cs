@@ -17,14 +17,14 @@ public class ExercisesController : ControllerBase
         _context = context;
     }
 
-    // Pobiera wszystkie ćwiczenia z bazy
+    // GET: Pobiera wszystkie ćwiczenia z bazy
     [HttpGet]
     public async Task<ActionResult<IEnumerable<Exercise>>> GetExercises()
     {
         return await _context.Exercises.ToListAsync();
     }
 
-    // Dodaje nowe ćwiczenie do bazy
+    // POST: Dodaje nowe ćwiczenie do bazy
     [HttpPost]
     public async Task<ActionResult<Exercise>> AddExercise(Exercise exercise)
     {
@@ -32,5 +32,25 @@ public class ExercisesController : ControllerBase
         await _context.SaveChangesAsync(); // Zapisanie zmian w bazie
 
         return Ok(exercise); // Zwraca kod 200 i obiekt, który dodaliśmy do bazy
+    }
+
+    // GET: api/exercises/search?name=klatka
+    [HttpGet("search")]
+    public async Task<ActionResult<IEnumerable<Exercise>>> SearchExercises(string name)
+    {
+        // Tworzymy zapytanie (IQueryable)
+        var query = _context.Exercises.AsQueryable();
+
+        if (!string.IsNullOrWhiteSpace(name))
+        {
+            
+            query = query.Where(e => e.Name.ToLower().Contains(name.ToLower())
+                          || e.TargetMuscle.ToLower().Contains(name.ToLower()));
+        }
+
+      
+        var results = await query.ToListAsync();
+
+        return Ok(results);
     }
 }

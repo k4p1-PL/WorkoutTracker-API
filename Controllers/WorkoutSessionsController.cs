@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore;
 using WorkoutTracker.Data;
 using WorkoutTracker.DTOs;
 using WorkoutTracker.Models;
-using AutoMapper;
+
 
 namespace WorkoutTracker.Controllers;
 

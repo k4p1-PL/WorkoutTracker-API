@@ -1,29 +1,47 @@
-﻿# Workout Tracker API 🏋️‍♂️
+﻿# 🏋️‍♂️ Workout Tracker (Full-Stack .NET & React)
 
-Proste i wydajne REST API do śledzenia progresji na siłowni i zarządzania objętością treningową. Projekt stworzony z myślą o czystej architekturze i dobrych praktykach programistycznych.
+Kompletna aplikacja do śledzenia progresji na siłowni i zarządzania objętością treningową. Prezentujący znajomość nowoczesnych technologii webowych, architektury klient-serwer oraz dobrych praktyk programistycznych.
 
 ## 🚀 Technologie
-* **C# / .NET** (Web API)
-* **Entity Framework Core** (ORM)
-* **SQLite** (Baza danych)
-* **LINQ** (Logika biznesowa i agregacja danych)
-* **Swagger/OpenAPI** (Dokumentacja i testowanie API)
 
-## 💡 Główne funkcjonalności
-* **Pełny system CRUD** dla sesji treningowych (tworzenie, odczyt, aktualizacja, usuwanie).
-* Rejestrowanie sesji wraz z przypisanymi seriami i ćwiczeniami (relacje One-to-Many).
-* **Logika biznesowa LINQ:** Automatyczne wyliczanie objętości treningowej (Total Volume).
-* **Architektura DTO:** Bezpieczna komunikacja i brak problemów z cyklicznymi referencjami dzięki mapowaniu obiektów.
-* **Obsługa błędów:** Walidacja wejścia (JSON) oraz obsługa wyjątków bazy danych (Status 400, 404, 500).
-* **Swagger UI:** Interaktywna dokumentacja API do testowania endpointów bezpośrednio z przeglądarki.
-* **Czysta architektura:** Wyraźny podział na warstwy (Controllers, Services, Repositories) dla lepszej organizacji kodu i łatwiejszej konserwacji.
-* **Dashboard statystyk:** Moduł wyliczający całkowitą objętość treningową oraz historię aktywności.
+**Wykorzystane technologie:**
+* **Backend:** C#, ASP.NET Core 10, Entity Framework Core, SQLite
+* **Architektura & Wzorce:** REST API, Dependency Injection, Service Layer (SOLID), DTO, AutoMapper
+* **Jakość:** xUnit (Testy automatyczne), Data Annotations (Walidacja modeli)
+* **CI/CD:** GitHub Actions (Automatyczne testowanie po każdym pushu)
+* **Frontend:** React (Vite), Hooks (useState, useEffect), nowoczesny CSS (Dark Mode)
 
-## ⚙️ Jak uruchomić projekt lokalnie?
+## 🎯 Główne funkcjonalności
+* **Pełny system CRUD** dla sesji treningowych i ćwiczeń.
+* **Relacyjna baza danych:** Rejestrowanie sesji wraz z przypisanymi seriami i ćwiczeniami (relacje One-to-Many).
+* **Logika biznesowa LINQ:** Automatyczne wyliczanie objętości treningowej (Total Volume) w dedykowanej warstwie serwisów.
+* **Architektura DTO:** Bezpieczna komunikacja i brak problemów z cyklicznymi referencjami dzięki mapowaniu obiektów (AutoMapper).
+* **Obsługa błędów:** Walidacja wejścia (JSON) i obsługa wyjątków.
+* **Dashboard Front-end:** Nowoczesny, responsywny interfejs w React prezentujący statystyki pobierane na żywo z API.
+* **Swagger UI:** Interaktywna dokumentacja API do testowania endpointów.
+
+## 🛠️ Jak uruchomić projekt lokalnie?
+
+Aby w pełni przetestować aplikację, należy uruchomić jednocześnie Backend (API) oraz Frontend (React) w dwóch osobnych oknach terminala.
+
+### Krok 1: Uruchomienie API (Backend)
 1. Sklonuj repozytorium na swój komputer.
-2. Otwórz terminal w głównym folderze projektu.
-3. Projekt korzysta z bazy SQLite (plik generuje się lokalnie), więc nie wymaga zewnętrznego serwera SQL. 
-4. Wpisz komendę, aby uruchomić aplikację:
-   ```bash
-   dotnet run
-5. Przejdź pod adres widoczny w konsoli, dodając /swagger na końcu (np. http://localhost:5041/swagger), aby testować endpointy w przeglądarce.
+2. Otwórz terminal w głównym folderze API (tam gdzie plik `.csproj`).
+3. Wpisz komendę:
+	```bash
+	dotnet run
+	```
+4. API uruchomi się lokalnie (baza SQLite wygeneruje się automatycznie). Swagger będzie dostępny pod adresem widocznym w konsoli (np. https://localhost:7134/swagger).
+
+### Krok 2: Uruchomienie interfejsu (Frontend)
+1. Otwórz drugie okno terminala.
+2. Wejdź do folderu frontendu:
+	```bash
+	cd frontend
+	```
+3. Zainstaluj pakiety i uruchom aplikację:
+	```bash
+	npm install
+	npm run dev
+	```
+4. Aplikacja otworzy się w przeglądarce pod adresem podanym w terminalu (zazwyczaj http://localhost:5173).

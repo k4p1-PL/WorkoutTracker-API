@@ -1,8 +1,10 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using AutoMapper;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using WorkoutTracker.Data;
 using WorkoutTracker.DTOs;
 using WorkoutTracker.Models;
+using AutoMapper;
 
 namespace WorkoutTracker.Controllers;
 
@@ -11,33 +13,24 @@ namespace WorkoutTracker.Controllers;
 public class WorkoutSessionsController : ControllerBase
 {
     private readonly AppDbContext _context;
+    private readonly IMapper _mapper;
 
-    public WorkoutSessionsController(AppDbContext context)
+    public WorkoutSessionsController(AppDbContext context, IMapper mapper)
     {
         _context = context;
+        _mapper = mapper;
     }
 
-    
+
     // GET: Pobiera historię treningów przepakowaną do DTO
     [HttpGet]
     public async Task<ActionResult<IEnumerable<WorkoutSessionDto>>> GetWorkouts()
     {
-        var workouts = await _context.WorkoutSessions
-            .Include(w => w.Sets)
-            .Select(w => new WorkoutSessionDto // Encja -> DTO
-            {
-                Id = w.Id,
-                Date = w.Date,
-                Name = w.Name,
-                Sets = w.Sets.Select(s => new SetDto
-                {
-                    Reps = s.Reps,
-                    Weight = s.Weight
-                }).ToList()
-            })
-            .ToListAsync();
+        var workouts = await _context.WorkoutSessions.Include(w => w.Sets).ToListAsync();
+  
+        var dtos = _mapper.Map<List<WorkoutSessionDto>>(workouts);
 
-        return Ok(workouts);
+        return Ok(dtos);
     }
 
     // POST: Zapisuje nowy trening w bazie

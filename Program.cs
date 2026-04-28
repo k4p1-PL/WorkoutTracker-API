@@ -14,6 +14,7 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseSqlite("Data Source=workout.db"));
 
+builder.Services.AddAutoMapper(typeof(Program));
 var app = builder.Build();
 
 // Odpalamy Swaggera

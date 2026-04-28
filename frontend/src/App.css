@@ -1,4 +1,4 @@
-/* Reset podstawowych stylów */
+
 * {
     box-sizing: border-box;
     margin: 0;
@@ -7,9 +7,8 @@
 
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    /* --- CIEMNY MOTYW (Dark Mode) --- */
-    background-color: #121212; /* Bardzo ciemnoszare tło główne */
-    color: #e0e0e0; /* Jasnoszary tekst główny dla kontrastu */
+    background-color: #121212;
+    color: #e0e0e0; 
     transition: background-color 0.3s ease, color 0.3s ease;
 }
 
@@ -25,22 +24,18 @@ body {
 }
 
     .app-header h1 {
-        /* --- CIEMNY MOTYW --- */
-        color: #ffffff; /* Czysta biel dla nagłówka */
+        color: #ffffff;
         font-size: 2.5rem;
         margin-bottom: 0.5rem;
-        text-shadow: 0 2px 4px rgba(0,0,0,0.5); /* Cień dla głębi */
+        text-shadow: 0 2px 4px rgba(0,0,0,0.5);
     }
 
     .app-header p {
-        /* --- CIEMNY MOTYW --- */
-        color: #a0a0a0; /* Ciemniejszy szary dla tekstu pomocniczego */
+        color: #a0a0a0; 
         font-size: 1.1rem;
     }
 
-/* --- Sekcja Statystyk (Dashboard) --- */
 .stats-section {
-    /* PRZYWRACAMY UKŁAD WIERSZEM */
     display: flex;
     justify-content: space-between;
     gap: 1.5rem;
@@ -48,29 +43,24 @@ body {
 }
 
 .stat-card {
-    /* PRZYWRACAMY EFEKT KAFELKA WIERSZEM */
-    /* --- CIEMNY MOTYW --- */
-    background: #1e1e1e; /* Ciemniejszy grafit dla kart */
+    background: #1e1e1e;
     padding: 1.5rem;
     border-radius: 12px;
-    flex: 1; /* Każda karta zajmuje równo miejsca */
+    flex: 1;
     text-align: center;
-    /* Mocniejszy cień, aby "wychodziły" z ciemności */
     box-shadow: 0 4px 20px rgba(0,0,0,0.4);
-    border-top: 4px solid #3498db; /* Akcent niebieski zostaje */
+    border-top: 4px solid #3498db; 
     transition: transform 0.3s ease;
 }
 
     .stat-card.highlight {
-        /* Zachowujemy wyróżnienie czerwone */
         border-top-color: #e74c3c;
         transform: scale(1.05);
     }
 
     .stat-card h3 {
         font-size: 1rem;
-        /* --- CIEMNY MOTYW --- */
-        color: #808080; /* Stonowany szary dla etykiet */
+        color: #808080;
         margin-bottom: 1rem;
         text-transform: uppercase;
         letter-spacing: 1px;
@@ -79,48 +69,40 @@ body {
 .stat-value {
     font-size: 2.5rem;
     font-weight: bold;
-    /* --- CIEMNY MOTYW --- */
-    color: #ffffff; /* Biały dla najważniejszych liczb */
+    color: #ffffff; 
 }
 
-/* --- Grid Treningów --- */
 .workouts-section h2 {
     margin-bottom: 1.5rem;
-    /* --- CIEMNY MOTYW --- */
     color: #e0e0e0;
 }
 
 .workouts-grid {
-    /* PRZYWRACAMY GRID WIERSZEM */
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     gap: 1.5rem;
 }
 
 .workout-card {
-    /* PRZYWRACAMY EFEKT KARTY TRENINGU */
-    /* --- CIEMNY MOTYW --- */
-    background: #1e1e1e; /* Ciemny grafit dla kart treningów */
+    background: #1e1e1e; 
     border-radius: 12px;
     padding: 1.5rem;
     box-shadow: 0 2px 10px rgba(0,0,0,0.3);
     transition: transform 0.2s ease, box-shadow 0.2s ease;
-    border: 1px solid #333; /* Delikatna ramka dla odróżnienia kart */
+    border: 1px solid #333; 
 }
 
     .workout-card:hover {
         transform: translateY(-5px);
         box-shadow: 0 12px 25px rgba(0,0,0,0.5);
-        border-color: #4fa3e0; /* Ramka zmienia kolor na błękit przy najechaniu */
+        border-color: #4fa3e0;
     }
 
 .workout-title {
     font-size: 1.25rem;
-    /* --- CIEMNY MOTYW --- */
-    color: #4fa3e0; /* Jaśniejszy, nasycony błękit dla kontrastu */
+    color: #4fa3e0; 
     margin-bottom: 1rem;
-    /* --- CIEMNY MOTYW --- */
-    border-bottom: 1px solid #333; /* Ciemniejsza linia separatora */
+    border-bottom: 1px solid #333; 
     padding-bottom: 0.5rem;
 }
 
@@ -128,12 +110,10 @@ body {
     display: flex;
     justify-content: space-between;
     margin-bottom: 0.5rem;
-    /* --- CIEMNY MOTYW --- */
     color: #a0a0a0;
 }
 
 .workout-details span {
     font-weight: 600;
-    /* --- CIEMNY MOTYW --- */
     color: #e0e0e0;
 }

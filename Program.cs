@@ -15,6 +15,7 @@ builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseSqlite("Data Source=workout.db"));
 
 builder.Services.AddAutoMapper(typeof(Program));
+builder.Services.AddScoped<WorkoutTracker.Interfaces.IDashboardService, WorkoutTracker.Services.DashboardService>();
 var app = builder.Build();
 
 // Odpalamy Swaggera

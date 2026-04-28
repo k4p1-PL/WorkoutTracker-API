@@ -1,0 +1,29 @@
+name: .NET CI Pipeline
+
+on:
+  push:
+    branches: [ "main", "master" ]
+  pull_request:
+    branches: [ "main", "master" ]
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Pobranie kodu z repozytorium
+      uses: actions/checkout@v4
+
+    - name: Instalacja platformy .NET
+      uses: actions/setup-dotnet@v4
+      with:
+        dotnet-version: '10.0.x'
+
+    - name: Przywracanie zaleznosci (Restore)
+      run: dotnet restore
+
+    - name: Budowanie projektu (Build)
+      run: dotnet build --no-restore
+
+    - name: Uruchomienie testow xUnit (Test)
+      run: dotnet test --no-build --verbosity normal

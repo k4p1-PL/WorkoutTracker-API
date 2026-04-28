@@ -10,10 +10,13 @@ Proste i wydajne REST API do śledzenia progresji na siłowni i zarządzania obj
 * **Swagger/OpenAPI** (Dokumentacja i testowanie API)
 
 ## 💡 Główne funkcjonalności
-* Rejestrowanie sesji treningowych wraz z przypisanymi do nich seriami i ćwiczeniami (relacje One-to-Many).
-* Wyliczanie całkowitej objętości treningowej (Total Volume) dla danej sesji za pomocą LINQ.
-* Zastosowanie wzorca **DTO (Data Transfer Object)** w celu separacji modelu bazy danych od interfejsu API i uniknięcia cyklicznych referencji.
-* Eager Loading (`.Include()`) przy pobieraniu relacyjnych danych z bazy.
+* **Pełny system CRUD** dla sesji treningowych (tworzenie, odczyt, aktualizacja, usuwanie).
+* Rejestrowanie sesji wraz z przypisanymi seriami i ćwiczeniami (relacje One-to-Many).
+* **Logika biznesowa LINQ:** Automatyczne wyliczanie objętości treningowej (Total Volume).
+* **Architektura DTO:** Bezpieczna komunikacja i brak problemów z cyklicznymi referencjami dzięki mapowaniu obiektów.
+* **Obsługa błędów:** Walidacja wejścia (JSON) oraz obsługa wyjątków bazy danych (Status 400, 404, 500).
+* **Swagger UI:** Interaktywna dokumentacja API do testowania endpointów bezpośrednio z przeglądarki.
+* **Czysta architektura:** Wyraźny podział na warstwy (Controllers, Services, Repositories) dla lepszej organizacji kodu i łatwiejszej konserwacji.
 
 ## ⚙️ Jak uruchomić projekt lokalnie?
 
